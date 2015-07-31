@@ -1,0 +1,23 @@
+{
+  "name": "cycle-engine.io",
+  "version": "0.0.1",
+  "description": "A Cycle driver for applications using engine.io",
+  "main": "dist/script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src/index.js --out-file dist/script.js"
+  },
+  "keywords": [
+    "cycle",
+    "engine.io"
+  ],
+  "author": "Tae-il Lim",
+  "license": "MIT",
+  "peerDependencies": {
+    "@cycle/core": "^1.0.1",
+    "engine.io-client": "^1.5.2"
+  },
+  "devDependencies": {
+    "babel": "^5.8.19"
+  }
+}
