@@ -15,7 +15,7 @@ function makeEngineIODriver(url, options) {
         observer.onNext(data);
       });
       socket.on('close', function() {
-        console.log('close', url);
+        observer.onCompleted();
       });
 
       return function dispose() {
