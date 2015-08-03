@@ -8,13 +8,9 @@ function makeEngineIODriver(url, options) {
   let socket = new EngineIO.Socket(url, options);
 
   // socket.binaryType = 'blob';
-
   return function engineIODriver(event$) {
     event$.forEach(event => socket.send(event));
     return Rx.Observable.create(observer => {
-      socket.on('open', function() {
-        console.log('open', url);
-      });
       socket.on('message', function(data) {
         observer.onNext(data);
       });

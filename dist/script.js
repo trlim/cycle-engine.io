@@ -17,15 +17,11 @@ function makeEngineIODriver(url, options) {
   var socket = new _engineIoClient2['default'].Socket(url, options);
 
   // socket.binaryType = 'blob';
-
   return function engineIODriver(event$) {
     event$.forEach(function (event) {
       return socket.send(event);
     });
     return _cycleCore.Rx.Observable.create(function (observer) {
-      socket.on('open', function () {
-        console.log('open', url);
-      });
       socket.on('message', function (data) {
         observer.onNext(data);
       });
